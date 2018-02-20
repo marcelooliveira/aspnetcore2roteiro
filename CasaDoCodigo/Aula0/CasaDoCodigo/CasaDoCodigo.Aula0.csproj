@@ -10,10 +10,17 @@
 
   <PropertyGroup>
     <EnableDefaultContentItems>false</EnableDefaultContentItems>
+    <RootNamespace>CasaDoCodigo</RootNamespace>
+    <AssemblyName>CasaDoCodigo</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="obj\project.assets.json" />
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\images\logo.png" />
     <Content Include="wwwroot\images\produtos\large_1.jpg" />
     <Content Include="wwwroot\images\produtos\large_2.jpg" />
@@ -51,5 +58,8 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="dotnet restore" />
+  </Target>
 
 </Project>
