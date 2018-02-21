@@ -10,15 +10,7 @@
 
   <PropertyGroup>
     <EnableDefaultContentItems>false</EnableDefaultContentItems>
-    <RootNamespace>CasaDoCodigo</RootNamespace>
-    <AssemblyName>CasaDoCodigo</AssemblyName>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="obj\**" />
-    <EmbeddedResource Remove="obj\**" />
-    <None Remove="obj\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <Content Include="wwwroot\images\logo.png" />
@@ -45,7 +37,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="1.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.1" />
