@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo.Aula0", "Aula0\CasaDoCodigo\CasaDoCodigo.Aula0.csproj", "{3FB23DA9-8733-42F0-95F1-90CB3C5A581C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo.Aula1", "Aula0\CasaDoCodigo\CasaDoCodigo.Aula1.csproj", "{3FB23DA9-8733-42F0-95F1-90CB3C5A581C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
