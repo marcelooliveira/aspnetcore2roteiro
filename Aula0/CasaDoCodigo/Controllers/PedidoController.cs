@@ -1,5 +1,6 @@
 ﻿using CasaDoCodigo.Models;
 using CasaDoCodigo.Models.ViewModels;
+using CasaDoCodigo.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,14 +12,25 @@ namespace CasaDoCodigo.Controllers
     public class PedidoController : Controller
     {
         private readonly IDataService _dataService;
-        public PedidoController(IDataService dataService)
+        private readonly IProdutoRepository _produtoRepository;
+        private readonly IItemPedidoRepository _itemPedidoRepository;
+        private readonly IPedidoRepository _pedidoRepository;
+        
+        public PedidoController(IDataService dataService
+                    , IProdutoRepository produtoRepository
+                    , IItemPedidoRepository itemPedidoRepository
+                    , IPedidoRepository pedidoRepository            
+            )
         {
             this._dataService = dataService;
+            this._produtoRepository = produtoRepository;
+            this._itemPedidoRepository = itemPedidoRepository;
+            this._pedidoRepository = pedidoRepository;
         }
 
         public IActionResult Carrossel()
         {
-            List<Produto> produtos = _dataService.GetProdutos();
+            List<Produto> produtos = _produtoRepository.GetProdutos();
             return View(produtos);
         }
 
@@ -26,7 +38,7 @@ namespace CasaDoCodigo.Controllers
         {
             if (produtoId.HasValue)
             {
-                _dataService.AddItemPedido(produtoId.Value);
+                _itemPedidoRepository.AddItemPedido(produtoId.Value);
             }
 
             CarrinhoViewModel viewModel = GetCarrinhoViewModel();
@@ -37,9 +49,9 @@ namespace CasaDoCodigo.Controllers
         private CarrinhoViewModel GetCarrinhoViewModel()
         {
             List<Produto> produtos =
-                this._dataService.GetProdutos();
+                this._produtoRepository.GetProdutos();
 
-            var itensCarrinho = this._dataService.GetItensPedido();
+            var itensCarrinho = this._itemPedidoRepository.GetItensPedido();
 
             CarrinhoViewModel viewModel =
                 new CarrinhoViewModel(itensCarrinho);
@@ -48,7 +60,7 @@ namespace CasaDoCodigo.Controllers
 
         public IActionResult Cadastro()
         {
-            var pedido = _dataService.GetPedido();
+            var pedido = _pedidoRepository.GetPedido();
 
             if (pedido == null)
             {
@@ -66,7 +78,7 @@ namespace CasaDoCodigo.Controllers
         {
             if (ModelState.IsValid)
             {
-                var pedido = _dataService.UpdateCastro(cadastro);
+                var pedido = _pedidoRepository.UpdateCastro(cadastro);
 
                 return View(pedido);
             }
@@ -80,7 +92,7 @@ namespace CasaDoCodigo.Controllers
         [ValidateAntiForgeryToken]
         public UpdateItemPedidoResponse PostQuantidade([FromBody]ItemPedido input)
         {
-            return _dataService.UpdateItemPedido(input);
+            return _itemPedidoRepository.UpdateItemPedido(input);
         }
     }
 }

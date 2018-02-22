@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using CasaDoCodigo.Repository;
 
 namespace CasaDoCodigo
 {
@@ -39,6 +40,9 @@ namespace CasaDoCodigo
             services.AddDbContext<Contexto>(options => options.UseSqlServer(connectionString));
 
             services.AddTransient<IDataService, DataService>();
+            services.AddTransient<IItemPedidoRepository, ItemPedidoRepository>();
+            services.AddTransient<IPedidoRepository, PedidoRepository>();
+            services.AddTransient<IProdutoRepository, ProdutoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,8 +72,7 @@ namespace CasaDoCodigo
                     template: "{controller=Pedido}/{action=Carrossel}/{id?}");
             });
 
-            IDataService dataService = serviceProvider
-                .GetService<IDataService>();
+            IDataService dataService = serviceProvider.GetService<IDataService>();
 
             dataService.InicializaDB();
         }
