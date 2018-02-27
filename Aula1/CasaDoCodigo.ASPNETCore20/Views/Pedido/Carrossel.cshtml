@@ -24,13 +24,13 @@
                 }
                 @foreach (var produto in produtosDaPagina)
                 {
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-sm-3 col-lg-3">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <img src="~/images/produtos/large_@(produto.Id).jpg" />
+                                <img class="img-produto-carrossel" src="~/images/produtos/large_@(produto.Codigo).jpg" />
                             </div>
-                            <div class="panel-footer">
-                                <div>@(produto.Nome)</div>
+                            <div class="panel-footer produto-footer">
+                                <div class="produto-nome">@(produto.Nome)</div>
                                 <div>R$ @(produto.Preco)</div>
                                 <div class="text-center">
                                     <a asp-action="carrinho"

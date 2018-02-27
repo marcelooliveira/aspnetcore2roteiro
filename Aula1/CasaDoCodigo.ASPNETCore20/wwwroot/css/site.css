@@ -58,3 +58,26 @@ textarea {
     display: flex;
     align-items: center;
 }
+
+.img-produto-carrossel {
+    width: 100%;
+}
+
+.img-produto-carrinho {
+    height: 120px;
+    filter: drop-shadow(2px 2px 2px #ccc);
+}
+
+.linha-produto {
+    margin: 20px;
+}
+
+.produto-nome {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.produto-footer {
+    max-height: 100px;
+}

@@ -6,7 +6,7 @@
 <h3>Meu Carrinho</h3>
 
 <form method="post">
-    @Html.AntiForgeryToken();
+    @Html.AntiForgeryToken()
 </form>
 
 <div class="panel panel-default">
@@ -32,9 +32,9 @@
     <div class="panel-body">
         @foreach (var item in Model.Itens)
         {
-            <div class="row row-center" item-id="@item.Id">
+            <div class="row row-center linha-produto" item-id="@item.Id">
                 <div class="col-md-3">
-                    <img src="~/images/produtos/small_@(item.Produto.Id).jpg" />
+                    <img class="img-produto-carrinho" src="~/images/produtos/large_@(item.Produto.Codigo).jpg" />
                 </div>
                 <div class="col-md-3">@item.Produto.Nome</div>
                 <div class="col-md-2 text-center">R$ @item.PrecoUnitario</div>

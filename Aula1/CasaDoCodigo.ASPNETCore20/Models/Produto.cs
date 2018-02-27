@@ -9,6 +9,8 @@ namespace CasaDoCodigo.Models
     public class Produto : BaseModel
     {
         [DataMember]
+        public string Codigo { get; private set; }
+        [DataMember]
         public string Nome { get; private set; }
         [DataMember]
         public decimal Preco { get; private set; }
@@ -18,14 +20,15 @@ namespace CasaDoCodigo.Models
 
         }
 
-        public Produto(int id, string nome, decimal preco)
-            : this(nome, preco)
+        public Produto(int id, string codigo, string nome, decimal preco)
+            : this(codigo, nome, preco)
         {
             this.Id = id;
         }
 
-        public Produto(string nome, decimal preco)
+        public Produto(string codigo, string nome, decimal preco)
         {
+            this.Codigo = codigo;
             this.Nome = nome;
             this.Preco = preco;
         }

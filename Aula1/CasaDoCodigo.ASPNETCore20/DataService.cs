@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace CasaDoCodigo
 {
-    public class DataService: IDataService
+    public class DataService : IDataService
     {
         private readonly Contexto _contexto;
         private readonly IHttpContextAccessor _contextAccessor;
@@ -23,33 +24,33 @@ namespace CasaDoCodigo
 
         public void InicializaDB()
         {
+            var json = string.Join("", System.IO.File.ReadAllLines(@"livros.json"));
+            var livros = JsonConvert.DeserializeObject<List<Livro>>(json);
+
             this._contexto.Database.EnsureCreated();
             if (this._contexto.Produtos.Count() == 0)
             {
-                List<Produto> produtos = new List<Produto>
+                foreach (var l in livros.OrderBy(l => l.Id))
                 {
-                    new Produto("Sleep not found", 59.90m),
-                    new Produto("May the code be with you", 59.90m),
-                    new Produto("Rollback", 59.90m),
-                    new Produto("REST", 69.90m),
-                    new Produto("Design Patterns com Java", 69.90m),
-                    new Produto("Vire o jogo com Spring Framework", 69.90m),
-                    new Produto("Test-Driven Development", 69.90m),
-                    new Produto("iOS: Programe para iPhone e iPad", 69.90m),
-                    new Produto("Desenvolvimento de Jogos para Android", 69.90m)
-                };
-
-                foreach (var produto in produtos)
-                {
-                    this._contexto.Produtos
-                        .Add(produto);
-
-                    //this._contexto.ItensPedido
-                    //    .Add(new ItemPedido(produto, 1));
+                    this._contexto.Produtos.Add(new Produto($"{l.Id:d3}", l.Name, 69.90m));
                 }
 
                 this._contexto.SaveChanges();
             }
         }
+    }
+
+    internal class Livro
+    {
+        public Livro(int id, string name, string src)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Src = src;
+        }
+
+        public int Id { get; }
+        public string Name { get; }
+        public string Src { get; }
     }
 }
