@@ -8,9 +8,9 @@ using CasaDoCodigo.ASPNETCore20.Models;
 
 namespace CasaDoCodigo.ASPNETCore20.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class Contexto : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public Contexto(DbContextOptions<Contexto> options)
             : base(options)
         {
         }
