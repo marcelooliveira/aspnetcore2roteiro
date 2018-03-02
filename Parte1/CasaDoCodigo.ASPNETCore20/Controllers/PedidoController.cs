@@ -15,11 +15,11 @@ namespace CasaDoCodigo.Controllers
         private readonly IProdutoRepository _produtoRepository;
         private readonly IItemPedidoRepository _itemPedidoRepository;
         private readonly IPedidoRepository _pedidoRepository;
-        
+
         public PedidoController(IDataService dataService
                     , IProdutoRepository produtoRepository
                     , IItemPedidoRepository itemPedidoRepository
-                    , IPedidoRepository pedidoRepository            
+                    , IPedidoRepository pedidoRepository
             )
         {
             this._dataService = dataService;
@@ -66,10 +66,7 @@ namespace CasaDoCodigo.Controllers
             {
                 return RedirectToAction("Carrossel");
             }
-            else
-            {
-                return View(pedido);
-            }
+            return View(pedido);
         }
 
         [HttpPost]
@@ -78,14 +75,11 @@ namespace CasaDoCodigo.Controllers
         {
             if (ModelState.IsValid)
             {
-                var pedido = _pedidoRepository.UpdateCastro(cadastro);
+                var pedido = _pedidoRepository.UpdateCadastro(cadastro);
 
                 return View(pedido);
             }
-            else
-            {
-                return RedirectToAction("Cadastro");
-            }
+            return RedirectToAction("Cadastro");
         }
 
         [HttpPost]

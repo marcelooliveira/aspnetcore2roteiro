@@ -24,7 +24,7 @@ namespace CasaDoCodigo.Repository
                         .SingleOrDefault();
         }
 
-        public Pedido UpdateCastro(Pedido cadastro)
+        public Pedido UpdateCadastro(Pedido cadastro)
         {
             var pedido = GetPedido();
             pedido.UpdateCadastro(cadastro);

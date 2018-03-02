@@ -6,6 +6,6 @@ namespace CasaDoCodigo.Repository
     public interface IPedidoRepository
     {
         Pedido GetPedido();
-        Pedido UpdateCastro(Pedido cadastro);
+        Pedido UpdateCadastro(Pedido cadastro);
     }
 }

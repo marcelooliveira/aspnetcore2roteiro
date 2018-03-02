@@ -47,10 +47,7 @@ namespace CasaDoCodigo.ASPNETCore20
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+            app.UseExceptionHandler("/Home/Error");
 
             app.UseStaticFiles();
             app.UseSession();
