@@ -5,11 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using CasaDoCodigo.ASPNETCore20.Models;
+using CasaDoCodigo.Models;
 
 namespace CasaDoCodigo.ASPNETCore20.Data
 {
     public class Contexto : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<ItemPedido> ItensPedido { get; set; }
+
         public Contexto(DbContextOptions<Contexto> options)
             : base(options)
         {
