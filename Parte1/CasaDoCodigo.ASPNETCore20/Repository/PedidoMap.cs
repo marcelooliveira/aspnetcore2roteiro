@@ -13,7 +13,7 @@ namespace CasaDoCodigo.ASPNETCore20.Repository
         {
             entityBuilder.HasKey(t => t.Id);
             entityBuilder.HasMany(t => t.Itens).WithOne(t => t.Pedido);
-            entityBuilder.HasOne(t => t.Cadastro).WithOne(t => t.Pedido);
+            entityBuilder.HasOne(t => t.Cadastro).WithOne(t => t.Pedido).IsRequired();
         }
     }
 }
