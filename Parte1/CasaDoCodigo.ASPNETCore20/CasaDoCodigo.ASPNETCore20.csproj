@@ -5,6 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\About.cshtml" />
+    <Content Remove="Views\Home\Contact.cshtml" />
+    <Content Remove="Views\Home\Index.cshtml" />
     <Content Remove="Views\Pedido\Cadastro.cshtml" />
     <Content Remove="Views\Pedido\Carrinho.cshtml" />
     <Content Remove="Views\Pedido\Carrossel.cshtml" />
@@ -20,6 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Home\About.cshtml" />
+    <None Include="Views\Home\Contact.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
     <None Include="Views\Pedido\Cadastro.cshtml" />
     <None Include="Views\Pedido\Carrinho.cshtml" />
     <None Include="Views\Pedido\Carrossel.cshtml" />

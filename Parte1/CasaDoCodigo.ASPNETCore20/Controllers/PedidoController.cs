@@ -15,17 +15,20 @@ namespace CasaDoCodigo.Controllers
         private readonly IProdutoRepository _produtoRepository;
         private readonly IItemPedidoRepository _itemPedidoRepository;
         private readonly IPedidoRepository _pedidoRepository;
+        private readonly ICadastroRepository _cadastroRepository;
 
         public PedidoController(IDataService dataService
                     , IProdutoRepository produtoRepository
                     , IItemPedidoRepository itemPedidoRepository
                     , IPedidoRepository pedidoRepository
+                    , ICadastroRepository cadastroRepository
             )
         {
             this._dataService = dataService;
             this._produtoRepository = produtoRepository;
             this._itemPedidoRepository = itemPedidoRepository;
             this._pedidoRepository = pedidoRepository;
+            this._cadastroRepository = cadastroRepository;
         }
 
         public IActionResult Carrossel()
@@ -71,11 +74,12 @@ namespace CasaDoCodigo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Resumo(Pedido cadastro)
+        public IActionResult Resumo(Cadastro cadastro)
         {
             if (ModelState.IsValid)
             {
-                var pedido = _pedidoRepository.UpdateCadastro(cadastro);
+                var pedido = _pedidoRepository.GetPedido();
+                _cadastroRepository.UpdateCadastro(cadastro, pedido.Cadastro);
 
                 return View(pedido);
             }

@@ -7,19 +7,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using CasaDoCodigo.Repository;
 
 namespace CasaDoCodigo
 {
     public class DataService : IDataService
     {
-        private readonly Contexto _contexto;
+        private readonly ApplicationContext _contexto;
         private readonly IHttpContextAccessor _contextAccessor;
+        private readonly IProdutoRepository _produtoRepository;
 
-        public DataService(Contexto contexto,
-            IHttpContextAccessor contextAccessor)
+        public DataService(ApplicationContext contexto,
+            IHttpContextAccessor contextAccessor,
+            IProdutoRepository produtoRepository)
         {
             this._contexto = contexto;
             this._contextAccessor = contextAccessor;
+            this._produtoRepository = produtoRepository;
         }
 
         public void InicializaDB()
@@ -28,11 +32,14 @@ namespace CasaDoCodigo
             var livros = JsonConvert.DeserializeObject<List<Livro>>(json);
 
             this._contexto.Database.EnsureCreated();
-            if (this._contexto.Produtos.Count() == 0)
+            if (_produtoRepository.NoProducts())
             {
                 foreach (var l in livros.OrderBy(l => l.Id))
                 {
-                    this._contexto.Produtos.Add(new Produto($"{l.Id:d3}", l.Name, 69.90m));
+                    int id = l.Id;
+                    string nome = l.Name;
+                    decimal preco = 69.90m;
+                    _produtoRepository.AdicionarProduto(id, nome, preco);
                 }
 
                 this._contexto.SaveChanges();

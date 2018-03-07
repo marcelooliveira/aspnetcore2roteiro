@@ -20,23 +20,15 @@ namespace CasaDoCodigo.Models
         [DataMember]
         public decimal PrecoUnitario { get; private set; }
         [DataMember]
-        public decimal Subtotal {
-            get
-            {
-                return Quantidade * PrecoUnitario;
-            }
-        }
+        public decimal Subtotal => Quantidade * PrecoUnitario;
 
         public ItemPedido()
         {
 
         }
 
-        public ItemPedido(int id, Pedido pedido, Produto produto, 
-            int quantidade) : this(pedido, produto, quantidade)
-        {
-            this.Id = id;
-        }
+        public ItemPedido(int id, Pedido pedido, Produto produto,
+            int quantidade) : this(pedido, produto, quantidade) => this.Id = id;
 
         public ItemPedido(Pedido pedido, Produto produto,
             int quantidade)

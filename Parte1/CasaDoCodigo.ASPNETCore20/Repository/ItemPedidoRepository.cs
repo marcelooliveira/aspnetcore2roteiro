@@ -3,69 +3,66 @@ using System.Linq;
 using CasaDoCodigo.Models;
 using CasaDoCodigo.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace CasaDoCodigo.Repository
 {
+    public interface IItemPedidoRepository
+    {
+        List<ItemPedido> GetItensPedido();
+        UpdateItemPedidoResponse UpdateItemPedido(ItemPedido itemPedido);
+        void AddItemPedido(int produtoId);
+    }
+
     public class ItemPedidoRepository : RepositoryBase<ItemPedido>, IItemPedidoRepository
     {
-        public ItemPedidoRepository(Contexto context,
-            IHttpContextAccessor contextAccessor) : base(context, contextAccessor)
+        private IProdutoRepository produtoRepository;
+        private IPedidoRepository pedidoRepository;
+        private DbSet<ItemPedido> itensPedido;
+
+        public ItemPedidoRepository(ApplicationContext context,
+            IHttpContextAccessor contextAccessor,
+            IProdutoRepository produtoRepository,
+            IPedidoRepository pedidoRepository) : base(context, contextAccessor)
         {
+            this.itensPedido = context.Set<ItemPedido>();
+            this.produtoRepository = produtoRepository;
+            this.pedidoRepository = pedidoRepository;
         }
 
         public void AddItemPedido(int produtoId)
         {
-            var produto =
-                _context.Produtos
-                .Where(p => p.Id == produtoId)
-                .SingleOrDefault();
+            Produto produto = produtoRepository.GetProduto(produtoId);
 
             if (produto != null)
             {
-                int? pedidoId = GetSessionPedidoId();
+                int pedidoId = pedidoRepository.GetSessionPedidoId() ?? 0;
 
                 Pedido pedido = null;
-                if (pedidoId.HasValue)
-                {
-                    pedido = _context.Pedidos
-                        .Where(p => p.Id == pedidoId.Value)
-                        .SingleOrDefault();
-                }
+                pedido = pedidoRepository.GetOrCreatePedido(pedidoId);
 
-                if (pedido == null)
-                    pedido = new Pedido();
-
-                if (!_context.ItensPedido
+                if (!itensPedido
                     .Where(i =>
                         i.Pedido.Id == pedido.Id
                         && i.Produto.Id == produtoId)
                     .Any())
                 {
-                    _context.ItensPedido.Add(
+                    itensPedido.Add(
                         new ItemPedido(pedido, produto, 1));
 
                     _context.SaveChanges();
 
-                    SetSessionPedidoId(pedido);
+                    pedidoRepository.SetSessionPedidoId(pedido);
                 }
             }
-
-        }
-
-        private void SetSessionPedidoId(Pedido pedido)
-        {
-            _contextAccessor.HttpContext
-                .Session.SetInt32("pedidoId", pedido.Id);
         }
 
         public List<ItemPedido> GetItensPedido()
         {
-            var pedidoId = GetSessionPedidoId();
-            var pedido = _context.Pedidos
-                .Where(p => p.Id == pedidoId)
-                .Single();
+            var pedidoId = pedidoRepository.GetSessionPedidoId();
+            var pedido = pedidoRepository.GetOrCreatePedido(pedidoId.Value);
 
-            return this._context.ItensPedido
+            return this.itensPedido
                 .Where(i => i.Pedido.Id == pedido.Id)
                 .ToList();
         }
@@ -73,7 +70,7 @@ namespace CasaDoCodigo.Repository
         public UpdateItemPedidoResponse UpdateItemPedido(ItemPedido itemPedido)
         {
             var itemPedidoDB =
-            _context.ItensPedido
+            itensPedido
                 .Where(i => i.Id == itemPedido.Id)
                 .SingleOrDefault();
 
@@ -82,14 +79,12 @@ namespace CasaDoCodigo.Repository
                 itemPedidoDB.AtualizaQuantidade(itemPedido.Quantidade);
 
                 if (itemPedidoDB.Quantidade == 0)
-                    _context.ItensPedido.Remove(itemPedidoDB);
+                    itensPedido.Remove(itemPedidoDB);
 
                 _context.SaveChanges();
             }
 
-            var itensPedido = _context.ItensPedido.ToList();
-
-            var carrinhoViewModel = new CarrinhoViewModel(itensPedido);
+            var carrinhoViewModel = new CarrinhoViewModel(itensPedido.ToList());
 
             return new UpdateItemPedidoResponse(itemPedidoDB, carrinhoViewModel);
 

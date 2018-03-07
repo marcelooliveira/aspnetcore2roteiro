@@ -30,12 +30,13 @@ namespace CasaDoCodigo.ASPNETCore20
             string connectionString =
                 Configuration.GetSection("ConnectionStrings")
                     .GetValue<string>("Default");
-            services.AddDbContext<Contexto>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connectionString));
 
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<IItemPedidoRepository, ItemPedidoRepository>();
-            services.AddTransient<IPedidoRepository, PedidoRepository>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
+            services.AddTransient<IPedidoRepository, PedidoRepository>();
+            services.AddTransient<ICadastroRepository, CadastroRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
