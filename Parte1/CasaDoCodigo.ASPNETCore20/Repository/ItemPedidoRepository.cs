@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using CasaDoCodigo.ASPNETCore20;
 using CasaDoCodigo.Models;
 using CasaDoCodigo.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -11,55 +12,59 @@ namespace CasaDoCodigo.Repository
     {
         List<ItemPedido> GetItensPedido();
         UpdateItemPedidoResponse UpdateItemPedido(ItemPedido itemPedido);
-        void AddItemPedido(int produtoId);
+        ItemPedido AddItemPedido(int produtoId);
     }
 
-    public class ItemPedidoRepository : RepositoryBase<ItemPedido>, IItemPedidoRepository
+    public class ItemPedidoRepository : BaseRepository<ItemPedido>, IItemPedidoRepository
     {
         private IProdutoRepository produtoRepository;
         private IPedidoRepository pedidoRepository;
         private DbSet<ItemPedido> itensPedido;
 
         public ItemPedidoRepository(ApplicationContext context,
-            IHttpContextAccessor contextAccessor,
+            ISessionManager sessionManager,
             IProdutoRepository produtoRepository,
-            IPedidoRepository pedidoRepository) : base(context, contextAccessor)
+            IPedidoRepository pedidoRepository) : base(context, sessionManager)
         {
             this.itensPedido = context.Set<ItemPedido>();
             this.produtoRepository = produtoRepository;
             this.pedidoRepository = pedidoRepository;
         }
 
-        public void AddItemPedido(int produtoId)
+        public ItemPedido AddItemPedido(int produtoId)
         {
+            ItemPedido itemPedido = null;
+
             Produto produto = produtoRepository.GetProduto(produtoId);
 
             if (produto != null)
             {
-                int pedidoId = pedidoRepository.GetSessionPedidoId() ?? 0;
+                int pedidoId = sessionManager.GetSessionPedidoId() ?? 0;
 
                 Pedido pedido = null;
                 pedido = pedidoRepository.GetOrCreatePedido(pedidoId);
 
-                if (!itensPedido
+                itemPedido = itensPedido
+                    .Include(i => i.Pedido)
                     .Where(i =>
                         i.Pedido.Id == pedido.Id
                         && i.Produto.Id == produtoId)
-                    .Any())
+                    .SingleOrDefault();
+
+                if (itemPedido == null)
                 {
-                    itensPedido.Add(
-                        new ItemPedido(pedido, produto, 1));
+                    itemPedido = new ItemPedido(pedido, produto, 1);
+                    itensPedido.Add(itemPedido);
 
-                    _context.SaveChanges();
-
-                    pedidoRepository.SetSessionPedidoId(pedido);
+                    context.SaveChanges();
                 }
             }
+            return itemPedido;
         }
 
         public List<ItemPedido> GetItensPedido()
         {
-            var pedidoId = pedidoRepository.GetSessionPedidoId();
+            var pedidoId = sessionManager.GetSessionPedidoId();
             var pedido = pedidoRepository.GetOrCreatePedido(pedidoId.Value);
 
             return this.itensPedido
@@ -81,7 +86,7 @@ namespace CasaDoCodigo.Repository
                 if (itemPedidoDB.Quantidade == 0)
                     itensPedido.Remove(itemPedidoDB);
 
-                _context.SaveChanges();
+                context.SaveChanges();
             }
 
             var carrinhoViewModel = new CarrinhoViewModel(itensPedido.ToList());

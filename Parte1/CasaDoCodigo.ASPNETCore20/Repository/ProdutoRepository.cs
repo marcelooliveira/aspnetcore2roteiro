@@ -1,4 +1,5 @@
-﻿using CasaDoCodigo.Models;
+﻿using CasaDoCodigo.ASPNETCore20;
+using CasaDoCodigo.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -14,12 +15,12 @@ namespace CasaDoCodigo.Repository
         void AdicionarProduto(int id, string nome, decimal preco);
     }
 
-    public class ProdutoRepository : RepositoryBase<Produto>, IProdutoRepository
+    public class ProdutoRepository : BaseRepository<Produto>, IProdutoRepository
     {
         private DbSet<Produto> produtos;
 
         public ProdutoRepository(ApplicationContext context,
-            IHttpContextAccessor contextAccessor) : base(context, contextAccessor)
+            ISessionManager sessionManager) : base(context, sessionManager)
         {
             produtos = context.Set<Produto>();
         }

@@ -25,13 +25,20 @@ namespace CasaDoCodigo.ASPNETCore20
         {
             services.AddMvc();
             services.AddDistributedMemoryCache();
-            services.AddSession();
+
+            services.AddSession(options =>
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = TimeSpan.FromSeconds(60);
+                options.Cookie.HttpOnly = true;
+            });
 
             string connectionString =
                 Configuration.GetSection("ConnectionStrings")
                     .GetValue<string>("Default");
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connectionString));
 
+            services.AddTransient<ISessionManager, SessionManager>();
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<IItemPedidoRepository, ItemPedidoRepository>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();

@@ -1,4 +1,5 @@
-﻿using CasaDoCodigo.Models;
+﻿using CasaDoCodigo.ASPNETCore20;
+using CasaDoCodigo.Models;
 using CasaDoCodigo.Models.ViewModels;
 using CasaDoCodigo.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -11,19 +12,22 @@ namespace CasaDoCodigo.Controllers
 {
     public class PedidoController : Controller
     {
+        private readonly ISessionManager _sessionManager;
         private readonly IDataService _dataService;
         private readonly IProdutoRepository _produtoRepository;
         private readonly IItemPedidoRepository _itemPedidoRepository;
         private readonly IPedidoRepository _pedidoRepository;
         private readonly ICadastroRepository _cadastroRepository;
 
-        public PedidoController(IDataService dataService
+        public PedidoController(ISessionManager sessionManager
+                    , IDataService dataService
                     , IProdutoRepository produtoRepository
                     , IItemPedidoRepository itemPedidoRepository
                     , IPedidoRepository pedidoRepository
                     , ICadastroRepository cadastroRepository
             )
         {
+            this._sessionManager = sessionManager;
             this._dataService = dataService;
             this._produtoRepository = produtoRepository;
             this._itemPedidoRepository = itemPedidoRepository;
@@ -41,7 +45,8 @@ namespace CasaDoCodigo.Controllers
         {
             if (produtoId.HasValue)
             {
-                _itemPedidoRepository.AddItemPedido(produtoId.Value);
+                var itemPedido = _itemPedidoRepository.AddItemPedido(produtoId.Value);
+                _sessionManager.SetSessionPedidoId(itemPedido.Pedido.Id);
             }
 
             CarrinhoViewModel viewModel = GetCarrinhoViewModel();

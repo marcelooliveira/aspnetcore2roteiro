@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using CasaDoCodigo.ASPNETCore20;
 
 namespace CasaDoCodigo.Repository
 {
@@ -13,14 +14,11 @@ namespace CasaDoCodigo.Repository
         void UpdateCadastro(Cadastro origem, Cadastro destino);
     }
 
-    public class CadastroRepository : RepositoryBase<Pedido>, ICadastroRepository
+    public class CadastroRepository : BaseRepository<Pedido>, ICadastroRepository
     {
-        private readonly ApplicationContext context;
-
         public CadastroRepository(ApplicationContext context,
-            IHttpContextAccessor contextAccessor) : base(context, contextAccessor)
+            ISessionManager sessionManager) : base(context, sessionManager)
         {
-            this.context = context;
         }
 
         public void SaveCadastro(Cadastro cadastro)
@@ -32,7 +30,7 @@ namespace CasaDoCodigo.Repository
         public Cadastro CreateCadastro()
         {
             Cadastro cadastro = new Cadastro();
-            _context.SaveChanges();
+            base.context.SaveChanges();
             return cadastro;
         }
 
@@ -47,7 +45,7 @@ namespace CasaDoCodigo.Repository
             destino.Municipio = origem.Municipio;
             destino.UF = origem.UF;
             destino.CEP = origem.CEP;
-            _context.SaveChanges();
+            base.context.SaveChanges();
         }
     }
 }

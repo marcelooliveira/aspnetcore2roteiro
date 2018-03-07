@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace CasaDoCodigo.ASPNETCore20.Repository
 {
-    public class ItemPedidoMap
+    public class ItemPedidoMap : BaseMap<ItemPedido>
     {
-        public ItemPedidoMap(EntityTypeBuilder<ItemPedido> entityBuilder)
+        public ItemPedidoMap(EntityTypeBuilder<ItemPedido> entityBuilder) : base(entityBuilder)
         {
-            entityBuilder.HasKey(t => t.Id);
             entityBuilder.HasOne(t => t.Pedido);
             entityBuilder.HasOne(t => t.Produto);
             entityBuilder.Property(t => t.Quantidade).IsRequired();

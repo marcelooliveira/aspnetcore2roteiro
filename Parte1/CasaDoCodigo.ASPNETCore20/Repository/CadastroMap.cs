@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace CasaDoCodigo.ASPNETCore20.Repository
 {
-    public class CadastroMap
+    public class CadastroMap : BaseMap<Cadastro>
     {
-        public CadastroMap(EntityTypeBuilder<Cadastro> entityBuilder)
+        public CadastroMap(EntityTypeBuilder<Cadastro> entityBuilder) : base(entityBuilder)
         {
-            entityBuilder.HasKey(t => t.Id);
             entityBuilder.HasOne(t => t.Pedido);
             entityBuilder.Property(t => t.Nome).IsRequired();
             entityBuilder.Property(t => t.Email).IsRequired();

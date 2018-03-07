@@ -1,8 +1,8 @@
 ﻿using CasaDoCodigo.Models;
-using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using CasaDoCodigo.ASPNETCore20;
 
 namespace CasaDoCodigo.Repository
 {
@@ -10,18 +10,16 @@ namespace CasaDoCodigo.Repository
     {
         Pedido GetPedido();
         Pedido GetOrCreatePedido(int pedidoId);
-        int? GetSessionPedidoId();
-        void SetSessionPedidoId(Pedido pedido);
     }
 
-    public class PedidoRepository : RepositoryBase<Pedido>, IPedidoRepository
+    public class PedidoRepository : BaseRepository<Pedido>, IPedidoRepository
     {
         private DbSet<Pedido> pedidos;
         private readonly ICadastroRepository cadastroRepository;
 
         public PedidoRepository(ApplicationContext context,
-            IHttpContextAccessor contextAccessor,
-            ICadastroRepository cadastroRepository) : base(context, contextAccessor)
+            ISessionManager sessionManager,
+            ICadastroRepository cadastroRepository) : base(context, sessionManager)
         {
             pedidos = context.Set<Pedido>();
             this.cadastroRepository = cadastroRepository;
@@ -29,7 +27,7 @@ namespace CasaDoCodigo.Repository
 
         public Pedido GetPedido()
         {
-            int? pedidoId = GetSessionPedidoId();
+            int? pedidoId = sessionManager.GetSessionPedidoId();
 
             return pedidos
                     .Include(p => p.Itens)
@@ -53,18 +51,5 @@ namespace CasaDoCodigo.Repository
 
             return pedido;
         }
-
-        public int? GetSessionPedidoId()
-        {
-            return _contextAccessor.HttpContext
-                .Session.GetInt32("pedidoId");
-        }
-
-        public void SetSessionPedidoId(Pedido pedido)
-        {
-            _contextAccessor.HttpContext
-                .Session.SetInt32("pedidoId", pedido.Id);
-        }
-
     }
 }
