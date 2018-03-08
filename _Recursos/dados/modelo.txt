@@ -1,0 +1,24 @@
+Produto
+    Codigo
+        Nome
+        Preco
+
+    Cadastro
+        Nome
+        Email
+        Telefone
+        Endereco
+        Complemento
+        Bairro
+        Municipio
+        UF
+        CEP
+
+    Pedido
+       Cadastro
+
+    ItemPedido
+        Pedido
+        Produto
+        Quantidade
+        PrecoUnitario
