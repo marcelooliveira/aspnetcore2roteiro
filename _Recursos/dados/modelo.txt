@@ -1,24 +1,24 @@
 Produto
     Codigo
-        Nome
-        Preco
+    Nome
+    Preco
 
+Cadastro
+    Nome
+    Email
+    Telefone
+    Endereco
+    Complemento
+    Bairro
+    Municipio
+    UF
+    CEP
+
+Pedido
     Cadastro
-        Nome
-        Email
-        Telefone
-        Endereco
-        Complemento
-        Bairro
-        Municipio
-        UF
-        CEP
 
+ItemPedido
     Pedido
-       Cadastro
-
-    ItemPedido
-        Pedido
-        Produto
-        Quantidade
-        PrecoUnitario
+    Produto
+    Quantidade
+    PrecoUnitario
