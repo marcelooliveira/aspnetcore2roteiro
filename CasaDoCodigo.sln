@@ -7,25 +7,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula1", "Aula1", "{1F818072
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula0", "Aula0", "{4FCDB22D-F690-4887-B454-1E9714D2A772}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo.ASPNETCore1x", "Aula0\ASPNETCore1x\CasaDoCodigo.ASPNETCore1x.csproj", "{25816831-6A20-4ADA-B729-8337F07F7FBE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo.ASPNETCore1xMigradoPara20", "Aula0\ASPNETCore1xMigradoPara20\CasaDoCodigo.ASPNETCore1xMigradoPara20.csproj", "{E38B667D-5AFA-45FA-AA51-9A70C1F4AF6F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "Aula0\ConsoleApp1\ConsoleApp1.csproj", "{9CFECDF8-C09D-4278-B4D9-143575A129D8}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Parte1", "Parte1", "{4AABF3E9-A8FA-4350-8B52-B6E51A7E6C56}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Parte2", "Parte2", "{B512B327-2EBC-42FE-931F-453ADCA3C74D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo.ASPNETCore20", "Parte1\CasaDoCodigo.ASPNETCore20\CasaDoCodigo.ASPNETCore20.csproj", "{83EC6045-A3EB-4548-A7AF-C738B56820E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasaDoCodigo", "Aula1\CasaDoCodigo\CasaDoCodigo.csproj", "{65B8ADAD-E9B2-499E-8EA0-0EE789C6571B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aulas", "Aulas", "{75BE9FF9-2E7E-4A69-BC4D-D026109CFBE1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Recursos", "_Recursos", "{B7D9C88D-790A-4AD3-BE37-F9583961AD4A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "views-com-bootstrap", "views-com-bootstrap", "{A4366231-3C3D-48EA-B4FD-AB777A5F9C91}"
+	ProjectSection(SolutionItems) = preProject
+		_Recursos\views-com-bootstrap\Cadastro.cshtml = _Recursos\views-com-bootstrap\Cadastro.cshtml
+		_Recursos\views-com-bootstrap\Carrinho.cshtml = _Recursos\views-com-bootstrap\Carrinho.cshtml
+		_Recursos\views-com-bootstrap\Carrossel.cshtml = _Recursos\views-com-bootstrap\Carrossel.cshtml
+		_Recursos\views-com-bootstrap\Resumo.cshtml = _Recursos\views-com-bootstrap\Resumo.cshtml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo", "Aulas\Aula1\CasaDoCodigo\CasaDoCodigo.csproj", "{E68B415A-93DD-4704-961E-4A712BFB26AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo.ASPNETCore1x", "Aulas\Aula0\ASPNETCore1x\CasaDoCodigo.ASPNETCore1x.csproj", "{880788AD-BB39-4D0D-A56E-95F3C0710933}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo.ASPNETCore1xMigradoPara20", "Aulas\Aula0\ASPNETCore1xMigradoPara20\CasaDoCodigo.ASPNETCore1xMigradoPara20.csproj", "{0F0E3F23-3BA3-43DD-8BAA-A391E837E206}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "Aulas\Aula0\ConsoleApp1\ConsoleApp1.csproj", "{9CFECDF8-C09D-4278-B4D9-143575A129D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,38 +39,38 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{25816831-6A20-4ADA-B729-8337F07F7FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25816831-6A20-4ADA-B729-8337F07F7FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25816831-6A20-4ADA-B729-8337F07F7FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{25816831-6A20-4ADA-B729-8337F07F7FBE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E38B667D-5AFA-45FA-AA51-9A70C1F4AF6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E38B667D-5AFA-45FA-AA51-9A70C1F4AF6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E38B667D-5AFA-45FA-AA51-9A70C1F4AF6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E38B667D-5AFA-45FA-AA51-9A70C1F4AF6F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9CFECDF8-C09D-4278-B4D9-143575A129D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9CFECDF8-C09D-4278-B4D9-143575A129D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9CFECDF8-C09D-4278-B4D9-143575A129D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9CFECDF8-C09D-4278-B4D9-143575A129D8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{83EC6045-A3EB-4548-A7AF-C738B56820E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83EC6045-A3EB-4548-A7AF-C738B56820E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83EC6045-A3EB-4548-A7AF-C738B56820E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83EC6045-A3EB-4548-A7AF-C738B56820E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{65B8ADAD-E9B2-499E-8EA0-0EE789C6571B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65B8ADAD-E9B2-499E-8EA0-0EE789C6571B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65B8ADAD-E9B2-499E-8EA0-0EE789C6571B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65B8ADAD-E9B2-499E-8EA0-0EE789C6571B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E68B415A-93DD-4704-961E-4A712BFB26AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E68B415A-93DD-4704-961E-4A712BFB26AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E68B415A-93DD-4704-961E-4A712BFB26AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E68B415A-93DD-4704-961E-4A712BFB26AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{880788AD-BB39-4D0D-A56E-95F3C0710933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{880788AD-BB39-4D0D-A56E-95F3C0710933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{880788AD-BB39-4D0D-A56E-95F3C0710933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{880788AD-BB39-4D0D-A56E-95F3C0710933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F0E3F23-3BA3-43DD-8BAA-A391E837E206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F0E3F23-3BA3-43DD-8BAA-A391E837E206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F0E3F23-3BA3-43DD-8BAA-A391E837E206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F0E3F23-3BA3-43DD-8BAA-A391E837E206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CFECDF8-C09D-4278-B4D9-143575A129D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CFECDF8-C09D-4278-B4D9-143575A129D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CFECDF8-C09D-4278-B4D9-143575A129D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CFECDF8-C09D-4278-B4D9-143575A129D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1F818072-5A7B-4710-B5B6-5D19F15E383C} = {75BE9FF9-2E7E-4A69-BC4D-D026109CFBE1}
-		{25816831-6A20-4ADA-B729-8337F07F7FBE} = {4FCDB22D-F690-4887-B454-1E9714D2A772}
-		{E38B667D-5AFA-45FA-AA51-9A70C1F4AF6F} = {4FCDB22D-F690-4887-B454-1E9714D2A772}
-		{9CFECDF8-C09D-4278-B4D9-143575A129D8} = {4FCDB22D-F690-4887-B454-1E9714D2A772}
 		{83EC6045-A3EB-4548-A7AF-C738B56820E1} = {4AABF3E9-A8FA-4350-8B52-B6E51A7E6C56}
-		{65B8ADAD-E9B2-499E-8EA0-0EE789C6571B} = {1F818072-5A7B-4710-B5B6-5D19F15E383C}
 		{A4366231-3C3D-48EA-B4FD-AB777A5F9C91} = {B7D9C88D-790A-4AD3-BE37-F9583961AD4A}
+		{E68B415A-93DD-4704-961E-4A712BFB26AB} = {1F818072-5A7B-4710-B5B6-5D19F15E383C}
+		{880788AD-BB39-4D0D-A56E-95F3C0710933} = {4FCDB22D-F690-4887-B454-1E9714D2A772}
+		{0F0E3F23-3BA3-43DD-8BAA-A391E837E206} = {4FCDB22D-F690-4887-B454-1E9714D2A772}
+		{9CFECDF8-C09D-4278-B4D9-143575A129D8} = {4FCDB22D-F690-4887-B454-1E9714D2A772}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C6D5C1D-6CD5-4BA7-A575-DC5A3F15B434}
