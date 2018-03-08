@@ -33,6 +33,86 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo.ASPNETCore1xMi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "Aulas\Aula0\ConsoleApp1\ConsoleApp1.csproj", "{9CFECDF8-C09D-4278-B4D9-143575A129D8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "produtos", "produtos", "{7B61AE4B-6016-4912-9DBA-D625EA96466D}"
+	ProjectSection(SolutionItems) = preProject
+		_Recursos\produtos\large_001.jpg = _Recursos\produtos\large_001.jpg
+		_Recursos\produtos\large_002.jpg = _Recursos\produtos\large_002.jpg
+		_Recursos\produtos\large_003.jpg = _Recursos\produtos\large_003.jpg
+		_Recursos\produtos\large_004.jpg = _Recursos\produtos\large_004.jpg
+		_Recursos\produtos\large_005.jpg = _Recursos\produtos\large_005.jpg
+		_Recursos\produtos\large_006.jpg = _Recursos\produtos\large_006.jpg
+		_Recursos\produtos\large_007.jpg = _Recursos\produtos\large_007.jpg
+		_Recursos\produtos\large_008.jpg = _Recursos\produtos\large_008.jpg
+		_Recursos\produtos\large_009.jpg = _Recursos\produtos\large_009.jpg
+		_Recursos\produtos\large_010.jpg = _Recursos\produtos\large_010.jpg
+		_Recursos\produtos\large_011.jpg = _Recursos\produtos\large_011.jpg
+		_Recursos\produtos\large_012.jpg = _Recursos\produtos\large_012.jpg
+		_Recursos\produtos\large_013.jpg = _Recursos\produtos\large_013.jpg
+		_Recursos\produtos\large_014.jpg = _Recursos\produtos\large_014.jpg
+		_Recursos\produtos\large_015.jpg = _Recursos\produtos\large_015.jpg
+		_Recursos\produtos\large_016.jpg = _Recursos\produtos\large_016.jpg
+		_Recursos\produtos\large_017.jpg = _Recursos\produtos\large_017.jpg
+		_Recursos\produtos\large_018.jpg = _Recursos\produtos\large_018.jpg
+		_Recursos\produtos\large_019.jpg = _Recursos\produtos\large_019.jpg
+		_Recursos\produtos\large_020.jpg = _Recursos\produtos\large_020.jpg
+		_Recursos\produtos\large_021.jpg = _Recursos\produtos\large_021.jpg
+		_Recursos\produtos\large_022.jpg = _Recursos\produtos\large_022.jpg
+		_Recursos\produtos\large_023.jpg = _Recursos\produtos\large_023.jpg
+		_Recursos\produtos\large_024.jpg = _Recursos\produtos\large_024.jpg
+		_Recursos\produtos\large_025.jpg = _Recursos\produtos\large_025.jpg
+		_Recursos\produtos\large_026.jpg = _Recursos\produtos\large_026.jpg
+		_Recursos\produtos\large_027.jpg = _Recursos\produtos\large_027.jpg
+		_Recursos\produtos\large_028.jpg = _Recursos\produtos\large_028.jpg
+		_Recursos\produtos\large_029.jpg = _Recursos\produtos\large_029.jpg
+		_Recursos\produtos\large_030.jpg = _Recursos\produtos\large_030.jpg
+		_Recursos\produtos\large_031.jpg = _Recursos\produtos\large_031.jpg
+		_Recursos\produtos\large_032.jpg = _Recursos\produtos\large_032.jpg
+		_Recursos\produtos\large_033.jpg = _Recursos\produtos\large_033.jpg
+		_Recursos\produtos\large_034.jpg = _Recursos\produtos\large_034.jpg
+		_Recursos\produtos\large_035.jpg = _Recursos\produtos\large_035.jpg
+		_Recursos\produtos\large_036.jpg = _Recursos\produtos\large_036.jpg
+		_Recursos\produtos\large_037.jpg = _Recursos\produtos\large_037.jpg
+		_Recursos\produtos\large_038.jpg = _Recursos\produtos\large_038.jpg
+		_Recursos\produtos\large_039.jpg = _Recursos\produtos\large_039.jpg
+		_Recursos\produtos\large_040.jpg = _Recursos\produtos\large_040.jpg
+		_Recursos\produtos\large_041.jpg = _Recursos\produtos\large_041.jpg
+		_Recursos\produtos\large_042.jpg = _Recursos\produtos\large_042.jpg
+		_Recursos\produtos\large_043.jpg = _Recursos\produtos\large_043.jpg
+		_Recursos\produtos\large_044.jpg = _Recursos\produtos\large_044.jpg
+		_Recursos\produtos\large_045.jpg = _Recursos\produtos\large_045.jpg
+		_Recursos\produtos\large_046.jpg = _Recursos\produtos\large_046.jpg
+		_Recursos\produtos\large_047.jpg = _Recursos\produtos\large_047.jpg
+		_Recursos\produtos\large_048.jpg = _Recursos\produtos\large_048.jpg
+		_Recursos\produtos\large_049.jpg = _Recursos\produtos\large_049.jpg
+		_Recursos\produtos\large_050.jpg = _Recursos\produtos\large_050.jpg
+		_Recursos\produtos\large_051.jpg = _Recursos\produtos\large_051.jpg
+		_Recursos\produtos\large_052.jpg = _Recursos\produtos\large_052.jpg
+		_Recursos\produtos\large_053.jpg = _Recursos\produtos\large_053.jpg
+		_Recursos\produtos\large_054.jpg = _Recursos\produtos\large_054.jpg
+		_Recursos\produtos\large_055.jpg = _Recursos\produtos\large_055.jpg
+		_Recursos\produtos\large_056.jpg = _Recursos\produtos\large_056.jpg
+		_Recursos\produtos\large_057.jpg = _Recursos\produtos\large_057.jpg
+		_Recursos\produtos\large_058.jpg = _Recursos\produtos\large_058.jpg
+		_Recursos\produtos\large_059.jpg = _Recursos\produtos\large_059.jpg
+		_Recursos\produtos\large_060.jpg = _Recursos\produtos\large_060.jpg
+		_Recursos\produtos\large_061.jpg = _Recursos\produtos\large_061.jpg
+		_Recursos\produtos\large_062.jpg = _Recursos\produtos\large_062.jpg
+		_Recursos\produtos\large_063.jpg = _Recursos\produtos\large_063.jpg
+		_Recursos\produtos\large_064.jpg = _Recursos\produtos\large_064.jpg
+		_Recursos\produtos\large_065.jpg = _Recursos\produtos\large_065.jpg
+		_Recursos\produtos\livros.txt = _Recursos\produtos\livros.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "logos", "logos", "{5606724E-7EF7-4DCF-9B5E-AD21B9AEE6D0}"
+	ProjectSection(SolutionItems) = preProject
+		_Recursos\logos\logo.png = _Recursos\logos\logo.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{A42C85AC-52B2-4AED-AC36-977C32333564}"
+	ProjectSection(SolutionItems) = preProject
+		_Recursos\css\site.css = _Recursos\css\site.css
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +151,9 @@ Global
 		{880788AD-BB39-4D0D-A56E-95F3C0710933} = {4FCDB22D-F690-4887-B454-1E9714D2A772}
 		{0F0E3F23-3BA3-43DD-8BAA-A391E837E206} = {4FCDB22D-F690-4887-B454-1E9714D2A772}
 		{9CFECDF8-C09D-4278-B4D9-143575A129D8} = {4FCDB22D-F690-4887-B454-1E9714D2A772}
+		{7B61AE4B-6016-4912-9DBA-D625EA96466D} = {B7D9C88D-790A-4AD3-BE37-F9583961AD4A}
+		{5606724E-7EF7-4DCF-9B5E-AD21B9AEE6D0} = {B7D9C88D-790A-4AD3-BE37-F9583961AD4A}
+		{A42C85AC-52B2-4AED-AC36-977C32333564} = {B7D9C88D-790A-4AD3-BE37-F9583961AD4A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C6D5C1D-6CD5-4BA7-A575-DC5A3F15B434}
