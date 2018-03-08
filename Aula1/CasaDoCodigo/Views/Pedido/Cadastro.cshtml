@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "Carrossel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Cadastro</h3>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form role="form" method="post" action="/Pedido/resumo">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="nomeCliente">Nome do Cliente</label>
+                    <input type="text" class="form-control" id="nomeCliente" placeholder="Nome do Cliente" data-val="true" data-val-length="Nome deve ter entre 5 e 50 caracteres" data-val-length-max="50" data-val-length-min="5" data-val-required="Nome &#xE9; obrigat&#xF3;rio" name="Cadastro.Nome" value="">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Cadastro.Nome" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" data-val="true" data-val-required="The Email field is required." name="Cadastro.Email" value="">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Cadastro.Email" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="telefone">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" placeholder="Telefone" data-val="true" data-val-required="The Telefone field is required." name="Cadastro.Telefone" value="">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Cadastro.Telefone" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="endereco">Endereço</label>
+                    <input type="text" class="form-control" id="endereco" placeholder="Endereço" data-val="true" data-val-required="The Endereco field is required." name="Cadastro.Endereco" value="">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Cadastro.Endereco" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="complemento">Complemento</label>
+                    <input type="text" class="form-control" id="complemento" placeholder="Complemento" name="Cadastro.Complemento" value="">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Cadastro.Complemento" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="bairro">Bairro</label>
+                    <input type="text" class="form-control" id="bairro" placeholder="Bairro" data-val="true" data-val-required="The Bairro field is required." name="Cadastro.Bairro" value="">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Cadastro.Bairro" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label" for="municipio">Município</label>
+                    <input type="text" class="form-control" id="municipio" placeholder="Município" data-val="true" data-val-required="The Municipio field is required." name="Cadastro.Municipio" value="">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Cadastro.Municipio" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="uf">UF</label>
+                    <input type="text" class="form-control" id="uf" placeholder="UF" data-val="true" data-val-required="The UF field is required." name="Cadastro.UF" value="">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Cadastro.UF" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="cep">CEP</label>
+                    <input type="text" class="form-control" id="cep" placeholder="CEP" data-val="true" data-val-required="The CEP field is required." name="Cadastro.CEP" value="">
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Cadastro.CEP" data-valmsg-replace="true"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <a class="btn btn-success" href="/Pedido/carrinho">
+                        Continuar Comprando
+                    </a>
+                </div>
+                <div class="form-group">
+                    <button type="submit"
+                            class="btn btn-success">
+                        Finalizar Pedido
+                    </button>
+                </div>
+            </div>
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8ABDyb8xTHNEtqqiCgAheox4zzbsLMza_UjQLDsmTRD3kvsUG8W24ARUKjSCzSp-6CP-PC0n8CifoNaz62UhWSwMj4uIc2D9RCDq140WD2PeBtm6PR-JItqiCBSMzDdPj3_RztSpaqEB7FqnF_unfME" />
+        </form>
+    </div>
+</div>

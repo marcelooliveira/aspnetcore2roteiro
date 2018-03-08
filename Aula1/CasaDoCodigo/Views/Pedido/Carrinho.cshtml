@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewData["Title"] = "Carrossel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Meu Carrinho</h3>
+
+<form method="post">
+
+    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8ABDyb8xTHNEtqqiCgAheowqECgeeGpOzHAvHHL2TOnG5i3u6aDMdWh6Xxpu0Ida2HxZuUuKkMIcSFRVVt5T4NkgreduPhhQmdjypbfT7XChY8f_GA7iWRxD5-i4xhN8ZjtAiz-o6v_dMC_kHV_5oS4" />
+</form>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+
+        <div class="row">
+            <div class="col-md-6">
+                Item
+            </div>
+            <div class="col-md-2 text-center">
+                Preço Unitário
+            </div>
+            <div class="col-md-2 text-center">
+                Quantidade
+            </div>
+            <div class="col-md-2">
+                <span class="pull-right">
+                    Subtotal
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row row-center linha-produto" item-id="3002">
+            <div class="col-md-3">
+                <img class="img-produto-carrinho" src="/images/produtos/large_047.jpg" />
+            </div>
+            <div class="col-md-3">Arduino Pr&#xE1;tico</div>
+            <div class="col-md-2 text-center">R$ 69,90</div>
+            <div class="col-md-2 text-center">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default"
+                                onclick="carrinho.clickDecremento(this)">
+                            <span class="glyphicon-minus"></span>
+                        </button>
+                    </span>
+                    <input type="text" value="2"
+                           class="form-control text-center"
+                           onblur="carrinho.updateQuantidade(this)" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default"
+                                onclick="carrinho.clickIncremento(this)">
+                            <span class="glyphicon-plus">
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                R$ <span class="pull-right" subtotal>
+                    139,80
+                </span>
+            </div>
+        </div>
+        <div class="row row-center linha-produto" item-id="3003">
+            <div class="col-md-3">
+                <img class="img-produto-carrinho" src="/images/produtos/large_035.jpg" />
+            </div>
+            <div class="col-md-3">PostgreSQL</div>
+            <div class="col-md-2 text-center">R$ 69,90</div>
+            <div class="col-md-2 text-center">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default"
+                                onclick="carrinho.clickDecremento(this)">
+                            <span class="glyphicon-minus"></span>
+                        </button>
+                    </span>
+                    <input type="text" value="3"
+                           class="form-control text-center"
+                           onblur="carrinho.updateQuantidade(this)" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default"
+                                onclick="carrinho.clickIncremento(this)">
+                            <span class="glyphicon-plus">
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                R$ <span class="pull-right" subtotal>
+                    209,70
+                </span>
+            </div>
+        </div>
+        <div class="row row-center linha-produto" item-id="3004">
+            <div class="col-md-3">
+                <img class="img-produto-carrinho" src="/images/produtos/large_042.jpg" />
+            </div>
+            <div class="col-md-3">Scala</div>
+            <div class="col-md-2 text-center">R$ 69,90</div>
+            <div class="col-md-2 text-center">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default"
+                                onclick="carrinho.clickDecremento(this)">
+                            <span class="glyphicon-minus"></span>
+                        </button>
+                    </span>
+                    <input type="text" value="1"
+                           class="form-control text-center"
+                           onblur="carrinho.updateQuantidade(this)" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default"
+                                onclick="carrinho.clickIncremento(this)">
+                            <span class="glyphicon-plus">
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                R$ <span class="pull-right" subtotal>
+                    69,90
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-md-10">
+                <span numero-itens>
+                    Total: 3
+                    itens
+                </span>
+            </div>
+            <div class="col-md-2">
+                Total: R$ <span class="pull-right" total>
+                    419,40
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="pull-right">
+            <a class="btn btn-success" href="/">
+                Adicionar Produtos
+            </a>
+            <a class="btn btn-success" href="/Pedido/cadastro">
+                Preencher Cadastro
+            </a>
+        </div>
+    </div>
+</div>
