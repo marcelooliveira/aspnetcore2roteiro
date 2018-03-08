@@ -79,9 +79,5 @@ textarea {
 }
 
 .produto-footer {
-    max-height: 140px;
-}
-
-.produto-nome {
-
+    max-height: 100px;
 }
