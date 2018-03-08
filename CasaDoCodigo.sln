@@ -26,12 +26,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Recursos", "_Recursos", "{B7D9C88D-790A-4AD3-BE37-F9583961AD4A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "views-com-bootstrap", "views-com-bootstrap", "{A4366231-3C3D-48EA-B4FD-AB777A5F9C91}"
-	ProjectSection(SolutionItems) = preProject
-		Aula1\CasaDoCodigo\Views\Pedido\Cadastro.cshtml = Aula1\CasaDoCodigo\Views\Pedido\Cadastro.cshtml
-		Aula1\CasaDoCodigo\Views\Pedido\Carrinho.cshtml = Aula1\CasaDoCodigo\Views\Pedido\Carrinho.cshtml
-		Aula1\CasaDoCodigo\Views\Pedido\Carrossel.cshtml = Aula1\CasaDoCodigo\Views\Pedido\Carrossel.cshtml
-		Aula1\CasaDoCodigo\Views\Pedido\Resumo.cshtml = Aula1\CasaDoCodigo\Views\Pedido\Resumo.cshtml
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
