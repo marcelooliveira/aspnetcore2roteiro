@@ -1,15 +1,9 @@
 ﻿
 @{
     ViewData["Title"] = "Carrossel";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h3>Meu Carrinho</h3>
-
-<form method="post">
-
-    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8ABDyb8xTHNEtqqiCgAheowqECgeeGpOzHAvHHL2TOnG5i3u6aDMdWh6Xxpu0Ida2HxZuUuKkMIcSFRVVt5T4NkgreduPhhQmdjypbfT7XChY8f_GA7iWRxD5-i4xhN8ZjtAiz-o6v_dMC_kHV_5oS4" />
-</form>
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -32,7 +26,7 @@
         </div>
     </div>
     <div class="panel-body">
-        <div class="row row-center linha-produto" item-id="3002">
+        <div class="row row-center linha-produto">
             <div class="col-md-3">
                 <img class="img-produto-carrinho" src="/images/produtos/large_047.jpg" />
             </div>
@@ -41,17 +35,14 @@
             <div class="col-md-2 text-center">
                 <div class="input-group">
                     <span class="input-group-btn">
-                        <button class="btn btn-default"
-                                onclick="carrinho.clickDecremento(this)">
+                        <button class="btn btn-default">
                             <span class="glyphicon-minus"></span>
                         </button>
                     </span>
                     <input type="text" value="2"
-                           class="form-control text-center"
-                           onblur="carrinho.updateQuantidade(this)" />
+                           class="form-control text-center"/>
                     <span class="input-group-btn">
-                        <button class="btn btn-default"
-                                onclick="carrinho.clickIncremento(this)">
+                        <button class="btn btn-default">
                             <span class="glyphicon-plus">
                         </button>
                     </span>
@@ -63,7 +54,7 @@
                 </span>
             </div>
         </div>
-        <div class="row row-center linha-produto" item-id="3003">
+        <div class="row row-center linha-produto">
             <div class="col-md-3">
                 <img class="img-produto-carrinho" src="/images/produtos/large_035.jpg" />
             </div>
@@ -72,17 +63,14 @@
             <div class="col-md-2 text-center">
                 <div class="input-group">
                     <span class="input-group-btn">
-                        <button class="btn btn-default"
-                                onclick="carrinho.clickDecremento(this)">
+                        <button class="btn btn-default">
                             <span class="glyphicon-minus"></span>
                         </button>
                     </span>
                     <input type="text" value="3"
-                           class="form-control text-center"
-                           onblur="carrinho.updateQuantidade(this)" />
+                           class="form-control text-center"/>
                     <span class="input-group-btn">
-                        <button class="btn btn-default"
-                                onclick="carrinho.clickIncremento(this)">
+                        <button class="btn btn-default">
                             <span class="glyphicon-plus">
                         </button>
                     </span>
@@ -94,7 +82,7 @@
                 </span>
             </div>
         </div>
-        <div class="row row-center linha-produto" item-id="3004">
+        <div class="row row-center linha-produto">
             <div class="col-md-3">
                 <img class="img-produto-carrinho" src="/images/produtos/large_042.jpg" />
             </div>
@@ -103,17 +91,14 @@
             <div class="col-md-2 text-center">
                 <div class="input-group">
                     <span class="input-group-btn">
-                        <button class="btn btn-default"
-                                onclick="carrinho.clickDecremento(this)">
+                        <button class="btn btn-default">
                             <span class="glyphicon-minus"></span>
                         </button>
                     </span>
                     <input type="text" value="1"
-                           class="form-control text-center"
-                           onblur="carrinho.updateQuantidade(this)" />
+                           class="form-control text-center"/>
                     <span class="input-group-btn">
-                        <button class="btn btn-default"
-                                onclick="carrinho.clickIncremento(this)">
+                        <button class="btn btn-default">
                             <span class="glyphicon-plus">
                         </button>
                     </span>
@@ -149,7 +134,7 @@
             <a class="btn btn-success" href="/">
                 Adicionar Produtos
             </a>
-            <a class="btn btn-success" href="/Pedido/cadastro">
+            <a class="btn btn-success" href="/">
                 Preencher Cadastro
             </a>
         </div>
