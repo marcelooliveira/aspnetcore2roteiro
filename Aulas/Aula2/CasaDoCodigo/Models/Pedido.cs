@@ -7,6 +7,11 @@ namespace CasaDoCodigo.Models
 {
     public class Pedido : BaseEntity
     {
+        public Pedido()
+        {
+
+        }
+
         public Cadastro Cadastro { get; private set; }
         public List<ItemPedido> Items { get; private set; } = new List<ItemPedido>();
     }

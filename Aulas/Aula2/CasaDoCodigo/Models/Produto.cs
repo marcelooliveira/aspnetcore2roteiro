@@ -7,6 +7,11 @@ namespace CasaDoCodigo.Models
 {
     public class Produto : BaseEntity
     {
+        public Produto()
+        {
+
+        }
+
         public Produto(string codigo, string nome, decimal preco)
         {
             this.Codigo = codigo;

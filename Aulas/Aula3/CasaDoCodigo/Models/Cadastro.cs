@@ -7,6 +7,11 @@ namespace CasaDoCodigo.Models
 {
     public class Cadastro : BaseEntity
     {
+        public Cadastro()
+        {
+
+        }
+
         public Pedido Pedido { get; private set; }
         public string Nome { get; private set; }
         public string Email { get; private set; }

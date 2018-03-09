@@ -12,16 +12,15 @@ namespace CasaDoCodigo.Repositories
         bool NenhumProduto();
         void Add(List<Livro> livros);
         IList<Produto> GetAll();
+        Produto Get(int produtoId);
     }
 
-    public class ProdutoRepository : IProdutoRepository
+    public class ProdutoRepository : BaseRepository, IProdutoRepository
     {
-        private readonly ApplicationContext contexto;
         private readonly DbSet<Produto> produtos;
 
-        public ProdutoRepository(ApplicationContext contexto)
+        public ProdutoRepository(ApplicationContext contexto) : base(contexto)
         {
-            this.contexto = contexto;
             this.produtos = contexto.Set<Produto>();
         }
 
@@ -32,6 +31,12 @@ namespace CasaDoCodigo.Repositories
                 produtos.Add(new Produto($"{livro.Id:d3}", livro.Name, 49.90M));
             }
             contexto.SaveChanges();
+        }
+
+        public Produto Get(int produtoId)
+        {
+            return produtos
+                .Where(p => p.Id == produtoId).SingleOrDefault();
         }
 
         public IList<Produto> GetAll()

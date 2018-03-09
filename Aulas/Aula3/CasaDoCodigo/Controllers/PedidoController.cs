@@ -11,10 +11,13 @@ namespace CasaDoCodigo.Controllers
     public class PedidoController : Controller
     {
         private readonly IProdutoRepository produtoRepository;
+        private readonly IPedidoRepository pedidoRepository;
 
-        public PedidoController(IProdutoRepository produtoRepository)
+        public PedidoController(IProdutoRepository produtoRepository,
+            IPedidoRepository pedidoRepository)
         {
             this.produtoRepository = produtoRepository;
+            this.pedidoRepository = pedidoRepository;
         }
 
         public IActionResult Carrossel()
@@ -23,9 +26,11 @@ namespace CasaDoCodigo.Controllers
             return View(produtos);
         }
 
-        public IActionResult Carrinho()
+        public IActionResult Carrinho(int produtoId)
         {
-            return View();
+            pedidoRepository.AddItem(produtoId);
+            var items = pedidoRepository.GetItems();
+            return View(items);
         }
 
         public IActionResult Cadastro()
