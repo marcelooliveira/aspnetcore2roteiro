@@ -11,6 +11,7 @@ namespace CasaDoCodigo.Repositories
     {
         bool NenhumProduto();
         void Add(List<Livro> livros);
+        IList<Produto> GetAll();
     }
 
     public class ProdutoRepository : IProdutoRepository
@@ -31,6 +32,11 @@ namespace CasaDoCodigo.Repositories
                 produtos.Add(new Produto($"{livro.Id:d3}", livro.Name, 49.90M));
             }
             contexto.SaveChanges();
+        }
+
+        public IList<Produto> GetAll()
+        {
+            return produtos.ToList();
         }
 
         public bool NenhumProduto()
