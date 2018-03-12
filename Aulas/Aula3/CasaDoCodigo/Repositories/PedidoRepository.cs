@@ -42,9 +42,9 @@ namespace CasaDoCodigo.Repositories
             if (itemPedido == null)
             {
                 itemPedido =
-                    new ItemPedido(pedido, produto, 1, produto.Preco);
+                    new ItemPedido(pedido, produto, 1);
 
-                pedido.Items.Add(itemPedido);
+                pedido.Itens.Add(itemPedido);
 
                 contexto.SaveChanges();
             }
@@ -67,7 +67,8 @@ namespace CasaDoCodigo.Repositories
 
         private Pedido Create()
         {
-            var pedido = new Pedido();
+            var cadastro = new Cadastro();
+            var pedido = new Pedido(cadastro);
             pedidos.Add(pedido);
             contexto.SaveChanges();
             SetSessionPedidoId(pedido.Id);
