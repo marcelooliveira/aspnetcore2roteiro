@@ -16,7 +16,8 @@ namespace CasaDoCodigo.Repositories
     public class ItemPedidoRepository : BaseRepository, IItemPedidoRepository
     {
         private readonly DbSet<ItemPedido> itensPedido;
-        public ItemPedidoRepository(ApplicationContext contexto) : base(contexto)
+        public ItemPedidoRepository(ApplicationContext contexto
+            , ISessionManager sessionManager) : base(contexto, sessionManager)
         {
             this.itensPedido = contexto.Set<ItemPedido>();
         }
@@ -34,10 +35,17 @@ namespace CasaDoCodigo.Repositories
 
         public IList<ItemPedido> GetAll()
         {
-            return 
-                itensPedido
-                .Include(i => i.Produto)
-                .ToList();
+            if (sessionManager.GetSessionPedidoId() is int pedidoId)
+            {
+                return 
+                    itensPedido
+                    .Include(i => i.Produto)
+                    .Include(i => i.Pedido)
+                    .Where(i => i.Pedido.Id == pedidoId)
+                    .ToList();
+            }
+
+            throw new ApplicationException("Pedido Id não pode ser nulo");
         }
 
         

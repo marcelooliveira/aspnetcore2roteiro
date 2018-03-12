@@ -19,7 +19,8 @@ namespace CasaDoCodigo.Repositories
     {
         private readonly DbSet<Produto> produtos;
 
-        public ProdutoRepository(ApplicationContext contexto) : base(contexto)
+        public ProdutoRepository(ApplicationContext contexto
+            , ISessionManager sessionManager) : base(contexto, sessionManager)
         {
             this.produtos = contexto.Set<Produto>();
         }

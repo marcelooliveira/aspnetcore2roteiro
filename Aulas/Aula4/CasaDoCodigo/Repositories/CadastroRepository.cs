@@ -15,7 +15,8 @@ namespace CasaDoCodigo.Repositories
 
     public class CadastroRepository : BaseRepository, ICadastroRepository
     {
-        public CadastroRepository(ApplicationContext contexto) : base(contexto)
+        public CadastroRepository(ApplicationContext contexto
+            , ISessionManager sessionManager) : base(contexto, sessionManager)
         {
         }
 

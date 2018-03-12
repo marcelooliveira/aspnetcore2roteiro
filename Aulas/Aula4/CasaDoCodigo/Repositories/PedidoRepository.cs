@@ -21,18 +21,16 @@ namespace CasaDoCodigo.Repositories
         private readonly DbSet<Pedido> pedidos;
         private readonly IProdutoRepository produtoRepository;
         private readonly IItemPedidoRepository itemPedidoRepository;
-        private readonly ISessionManager sessionManager;
 
         public PedidoRepository(ApplicationContext contexto
+            , ISessionManager sessionManager
             , IHttpContextAccessor contextAccessor
             , IProdutoRepository produtoRepository
-            , IItemPedidoRepository itemPedidoRepository,
-            ISessionManager sessionManager) : base(contexto)
+            , IItemPedidoRepository itemPedidoRepository) : base(contexto, sessionManager)
         {
             this.contextAccessor = contextAccessor;
             this.produtoRepository = produtoRepository;
             this.itemPedidoRepository = itemPedidoRepository;
-            this.sessionManager = sessionManager;
             this.pedidos = contexto.Set<Pedido>();
         }
 
