@@ -12,12 +12,15 @@ namespace CasaDoCodigo.Controllers
     {
         private readonly IProdutoRepository produtoRepository;
         private readonly IPedidoRepository pedidoRepository;
+        private readonly ICadastroRepository cadastroRepository;
 
         public PedidoController(IProdutoRepository produtoRepository,
-            IPedidoRepository pedidoRepository)
+            IPedidoRepository pedidoRepository,
+            ICadastroRepository cadastroRepository)
         {
             this.produtoRepository = produtoRepository;
             this.pedidoRepository = pedidoRepository;
+            this.cadastroRepository = cadastroRepository;
         }
 
         public IActionResult Carrossel()
@@ -38,9 +41,18 @@ namespace CasaDoCodigo.Controllers
             return View();
         }
 
-        public IActionResult Resumo()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Resumo(Cadastro cadastro)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                var pedido = pedidoRepository.Get();
+                cadastroRepository.UpdateCadastro(cadastro, pedido.Cadastro);
+
+                return View(pedido);
+            }
+            return RedirectToAction("Cadastro");
         }
     }
 }

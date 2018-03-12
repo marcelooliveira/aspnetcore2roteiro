@@ -12,6 +12,7 @@ namespace CasaDoCodigo.Repositories
     {
         ItemPedido AddItem(int produtoId);
         IList<ItemPedido> GetItems();
+        Pedido Get();
     }
 
     public class PedidoRepository : BaseRepository, IPedidoRepository
@@ -20,15 +21,18 @@ namespace CasaDoCodigo.Repositories
         private readonly DbSet<Pedido> pedidos;
         private readonly IProdutoRepository produtoRepository;
         private readonly IItemPedidoRepository itemPedidoRepository;
+        private readonly ISessionManager sessionManager;
 
         public PedidoRepository(ApplicationContext contexto
             , IHttpContextAccessor contextAccessor
             , IProdutoRepository produtoRepository
-            , IItemPedidoRepository itemPedidoRepository) : base(contexto)
+            , IItemPedidoRepository itemPedidoRepository,
+            ISessionManager sessionManager) : base(contexto)
         {
             this.contextAccessor = contextAccessor;
             this.produtoRepository = produtoRepository;
             this.itemPedidoRepository = itemPedidoRepository;
+            this.sessionManager = sessionManager;
             this.pedidos = contexto.Set<Pedido>();
         }
 
@@ -42,9 +46,9 @@ namespace CasaDoCodigo.Repositories
             if (itemPedido == null)
             {
                 itemPedido =
-                    new ItemPedido(pedido, produto, 1, produto.Preco);
+                    new ItemPedido(pedido, produto, 1);
 
-                pedido.Items.Add(itemPedido);
+                pedido.Itens.Add(itemPedido);
 
                 contexto.SaveChanges();
             }
@@ -59,31 +63,32 @@ namespace CasaDoCodigo.Repositories
 
         private Pedido CreateOrGet()
         {
-            if (GetSessionPedidoId() is int pedidoId)
-                return pedidos.Where(p => p.Id == pedidoId).SingleOrDefault();
+            if (sessionManager.GetSessionPedidoId() is int pedidoId)
+                return Get();
 
             return Create();
         }
 
         private Pedido Create()
         {
-            var pedido = new Pedido();
+            var cadastro = new Cadastro();
+            var pedido = new Pedido(cadastro);
             pedidos.Add(pedido);
             contexto.SaveChanges();
-            SetSessionPedidoId(pedido.Id);
+            sessionManager.SetSessionPedidoId(pedido.Id);
             return pedido;
         }
 
-        private int? GetSessionPedidoId()
+        public Pedido Get()
         {
-            return contextAccessor.HttpContext
-                .Session.GetInt32("pedidoId");
-        }
+            int? pedidoId = sessionManager.GetSessionPedidoId();
 
-        private void SetSessionPedidoId(int pedidoId)
-        {
-            contextAccessor.HttpContext
-                .Session.SetInt32("pedidoId", pedidoId);
+            return pedidos
+                    .Include(p => p.Itens)
+                        .ThenInclude(p => p.Produto)
+                    .Include(p => p.Cadastro)
+                    .Where(p => p.Id == pedidoId)
+                    .SingleOrDefault();
         }
     }
 }

@@ -1,6 +1,6 @@
 using System;
 
-namespace CasaDoCodigo.Models
+namespace CasaDoCodigo.ASPNETCore20.Models
 {
     public class ErrorViewModel
     {
