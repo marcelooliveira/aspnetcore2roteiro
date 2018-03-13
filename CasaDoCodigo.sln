@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula1", "Aula1", "{1F818072-5A7B-4710-B5B6-5D19F15E383C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula1 - ASPNETCore, Mock Views", "Aula1 - ASPNETCore, Mock Views", "{1F818072-5A7B-4710-B5B6-5D19F15E383C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula0", "Aula0", "{4FCDB22D-F690-4887-B454-1E9714D2A772}"
 EndProject
@@ -120,19 +120,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dados", "dados", "{D7E0C086
 		_Recursos\dados\modelo.txt = _Recursos\dados\modelo.txt
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula2", "Aula2", "{9AF88358-6D46-4C96-A765-D91183C2FF3C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula2 - Model, EFCore, SQL, Code First, Migration", "Aula2 - Model, EFCore, SQL, Code First, Migration", "{9AF88358-6D46-4C96-A765-D91183C2FF3C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo.Aula2", "Aulas\Aula2\CasaDoCodigo\CasaDoCodigo.Aula2.csproj", "{C2472479-D060-411D-A88B-FAAEE44BE4E5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula3", "Aula3", "{18FAF4F7-522E-4CD4-BF07-DFA75514E0C2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula3 - Repository, Razor, Pagination", "Aula3 - Repository, Razor, Pagination", "{18FAF4F7-522E-4CD4-BF07-DFA75514E0C2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo.Aula3", "Aulas\Aula3\CasaDoCodigo\CasaDoCodigo.Aula3.csproj", "{E05D3F6D-BD72-4AC3-BFA5-FC57C5E2C135}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula4", "Aula4", "{3D34F7F1-F1BB-4890-B6F8-97EC4903FA92}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula4 - Form, Submit, POST, Action", "Aula4 - Form, Submit, POST, Action", "{3D34F7F1-F1BB-4890-B6F8-97EC4903FA92}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo.Aula4", "Aulas\Aula4\CasaDoCodigo\CasaDoCodigo.Aula4.csproj", "{FE186F83-D836-4C72-BB80-4940E5CA5655}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula5", "Aula5", "{E297370D-CFB9-4B86-B79F-7958368C7D02}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aula5 - JavaScript, ES6, Quantidade", "Aula5 - JavaScript, ES6, Quantidade", "{E297370D-CFB9-4B86-B79F-7958368C7D02}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasaDoCodigo", "Aulas\Aula5\CasaDoCodigo\CasaDoCodigo.csproj", "{D0047575-B247-4942-A38E-23DBBD8A6098}"
 EndProject
