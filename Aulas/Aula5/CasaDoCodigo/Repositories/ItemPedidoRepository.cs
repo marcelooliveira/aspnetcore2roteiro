@@ -1,4 +1,5 @@
 ﻿using CasaDoCodigo.Models;
+using CasaDoCodigo.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace CasaDoCodigo.Repositories
     {
         IList<ItemPedido> GetAll();
         ItemPedido Get(int pedidoId, int produtoId);
+        UpdateItemPedidoResponse UpdateItemPedido(ItemPedido itemPedido);
     }
 
     public class ItemPedidoRepository : BaseRepository, IItemPedidoRepository
@@ -47,7 +49,31 @@ namespace CasaDoCodigo.Repositories
 
             throw new ApplicationException("Pedido Id não pode ser nulo");
         }
-
         
+        public UpdateItemPedidoResponse UpdateItemPedido(ItemPedido itemPedido)
+        {
+            var itemPedidoDB =
+            itensPedido
+                .Where(i => i.Id == itemPedido.Id)
+                .SingleOrDefault();
+
+            if (itemPedidoDB != null)
+            {
+                itemPedidoDB.AtualizaQuantidade(itemPedido.Quantidade);
+
+                if (itemPedidoDB.Quantidade == 0)
+                    itensPedido.Remove(itemPedidoDB);
+
+                contexto.SaveChanges();
+            }
+
+            var pedidoId = sessionManager.GetSessionPedidoId();
+
+            var carrinhoViewModel = new CarrinhoViewModel(GetAll().ToList());
+
+            return new UpdateItemPedidoResponse(itemPedidoDB, carrinhoViewModel);
+
+        }
+
     }
 }

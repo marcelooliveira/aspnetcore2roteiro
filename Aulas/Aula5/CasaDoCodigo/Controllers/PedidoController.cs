@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CasaDoCodigo.Models;
+using CasaDoCodigo.Models.ViewModels;
 using CasaDoCodigo.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,14 +14,17 @@ namespace CasaDoCodigo.Controllers
         private readonly IProdutoRepository produtoRepository;
         private readonly IPedidoRepository pedidoRepository;
         private readonly ICadastroRepository cadastroRepository;
+        private readonly IItemPedidoRepository itemPedidoRepository;
 
         public PedidoController(IProdutoRepository produtoRepository,
             IPedidoRepository pedidoRepository,
-            ICadastroRepository cadastroRepository)
+            ICadastroRepository cadastroRepository,
+            IItemPedidoRepository itemPedidoRepository)
         {
             this.produtoRepository = produtoRepository;
             this.pedidoRepository = pedidoRepository;
             this.cadastroRepository = cadastroRepository;
+            this.itemPedidoRepository = itemPedidoRepository;
         }
 
         public IActionResult Carrossel()
@@ -31,9 +35,12 @@ namespace CasaDoCodigo.Controllers
 
         public IActionResult Carrinho(int produtoId)
         {
-            pedidoRepository.AddItem(produtoId);
-            var items = pedidoRepository.GetItems();
-            return View(items);
+            if (produtoId > 0)
+            {
+                pedidoRepository.AddItem(produtoId);
+            }
+            CarrinhoViewModel viewModel = GetCarrinhoViewModel();
+            return View(viewModel);
         }
 
         public IActionResult Cadastro()
@@ -59,6 +66,22 @@ namespace CasaDoCodigo.Controllers
                 return View(pedido);
             }
             return RedirectToAction("Cadastro");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public UpdateItemPedidoResponse PostQuantidade([FromBody]ItemPedido input)
+        {
+            return itemPedidoRepository.UpdateItemPedido(input);
+        }
+
+        private CarrinhoViewModel GetCarrinhoViewModel()
+        {
+            var itensCarrinho = this.itemPedidoRepository.GetAll().ToList();
+
+            CarrinhoViewModel viewModel =
+                new CarrinhoViewModel(itensCarrinho);
+            return viewModel;
         }
     }
 }

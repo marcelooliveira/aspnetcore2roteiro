@@ -40,6 +40,7 @@
             data: JSON.stringify(data),
             headers: header
         }).done(function (response) {
+            debugger;
             this.setQuantidade(response.itemPedido);
             this.setSubtotal(response.itemPedido);
             this.setTotal(response.carrinhoViewModel);
